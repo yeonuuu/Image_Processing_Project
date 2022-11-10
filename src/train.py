@@ -54,7 +54,7 @@ def train():
     model = get_model()
     nb_train_samples = 24176
     nb_validation_samples = 3006
-    epochs=15
+    epochs=1
     model.compile(loss='categorical_crossentropy',optimizer=Adam(lr=0.0001, decay=1e-6),metrics=['accuracy'])
     model_info = model.fit(
         train_generator,

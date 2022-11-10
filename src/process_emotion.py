@@ -11,5 +11,6 @@ def process_emotion(image_path):
     img = Image.open(image_path).convert('L').resize((48, 48), Image.ANTIALIAS)
     img = np.array(img)
     preds = classifier.predict(img[None,:,:])
+    print(preds)
     t = np.argmax(preds[0])
     return class_labels[t]
