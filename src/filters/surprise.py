@@ -21,4 +21,4 @@ def surprise(image_path):
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
-    rbgimg.save('./output_' + dateString + '.png')
+    rbgimg.save('./output_surprise' + dateString + '.png')
