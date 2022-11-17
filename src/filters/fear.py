@@ -22,8 +22,8 @@ def fear(image_path):
 
             # Example of adding to the list a new pixel that has to change
             # with its value.
-
-            pixelToChange.append({"x": i, "y": j, "RGBA": (100, 100, 100, 255)})
+            newA = (i + j % 255) + 1
+            pixelToChange.append({"x": i, "y": j, "RGBA": (r, g, b, newA)})
 
     # Apply the changes
 

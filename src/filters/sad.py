@@ -27,8 +27,8 @@ def sad(image_path):
             pixelToChange.append({"x": i, "y": j, "RGBA": (100, 100, 100, 255)})
 
     # Apply the changes
-
-    rbgimg = apply_filter(pixelToChange, rbgimg)
+    rbgimg = rbgimg.quantize(20)
+    #    rbgimg = apply_filter(pixelToChange, rbgimg)
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
