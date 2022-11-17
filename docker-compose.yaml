@@ -1,8 +1,9 @@
 version: '3'
 
-image_processing:
-  build:
-    context: .
-    dockerfile: Dockerfile
+services:
+  image_processing:
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./:/app/
