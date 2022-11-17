@@ -31,4 +31,4 @@ def neutral(image_path):
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
-    rbgimg.save("./output_neutral" + dateString + ".png")
+    rbgimg.save("./outputs/output_neutral" + dateString + ".png")

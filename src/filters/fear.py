@@ -31,4 +31,4 @@ def fear(image_path):
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
-    rbgimg.save("./output_fear" + dateString + ".png")
+    rbgimg.save("./outputs/output_fear" + dateString + ".png")
