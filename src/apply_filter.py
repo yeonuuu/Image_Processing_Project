@@ -5,15 +5,16 @@ from filters.neutral import neutral
 from filters.surprise import surprise
 from filters.sad import sad
 
+
 def apply_filter(emotion, img_path):
-    if (emotion == "Happy"):
+    if emotion == "Happy":
         return happy(img_path)
-    elif (emotion == "Angry"):
+    elif emotion == "Angry":
         return fear(img_path)
-    elif (emotion == "Fear"):
+    elif emotion == "Fear":
         return fear(img_path)
-    elif (emotion == "Neutral"):
+    elif emotion == "Neutral":
         return neutral(img_path)
-    elif (emotion == "Sad"):
+    elif emotion == "Sad":
         return sad(img_path)
     return surprise(img_path)
