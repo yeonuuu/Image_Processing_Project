@@ -5,4 +5,4 @@ image_processing:
     context: .
     dockerfile: Dockerfile
     volumes:
-      - ./src:/app/
+      - ./:/app/
