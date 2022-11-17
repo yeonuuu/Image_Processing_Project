@@ -10,7 +10,7 @@ def apply_filter(emotion, img_path):
     if emotion == "Happy":
         return happy(img_path)
     elif emotion == "Angry":
-        return fear(img_path)
+        return angry(img_path)
     elif emotion == "Fear":
         return fear(img_path)
     elif emotion == "Neutral":
