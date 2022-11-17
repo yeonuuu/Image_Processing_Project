@@ -41,7 +41,7 @@ def train():
     train_datagen = ImageDataGenerator(rescale=1.0 / 255)
     validation_datagen = ImageDataGenerator(rescale=1.0 / 255)
     train_generator = train_datagen.flow_from_directory(
-        "./train",
+        "./train_emotion",
         color_mode="grayscale",
         target_size=(img_rows, img_cols),
         batch_size=batch_size,
@@ -50,7 +50,7 @@ def train():
     )
 
     validation_generator = validation_datagen.flow_from_directory(
-        "./validation",
+        "./validation_emotion",
         color_mode="grayscale",
         target_size=(img_rows, img_cols),
         batch_size=batch_size,
