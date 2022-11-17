@@ -22,7 +22,7 @@ def angry(image_path):
 
             # Example of adding to the list a new pixel that has to change
             # with its value.
-            newRValue = 255 if r + 40 > 255 else r + 40
+            newRValue = 255 if r + 70 > 255 else r + 70
             pixelToChange.append({"x": i, "y": j, "RGBA": (newRValue, g, b, a)})
 
     # Apply the changes
