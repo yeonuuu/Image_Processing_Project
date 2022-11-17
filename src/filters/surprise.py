@@ -3,6 +3,8 @@ from datetime import datetime
 
 def surprise(image_path):
 
+    pixelToChange =  []
+
     # Open image even grayscale and convert it to RGBA
 
     img = Image.open(image_path)
@@ -16,8 +18,23 @@ def surprise(image_path):
     for i in range(rbgimg.size[0]):
         for j in range(rbgimg.size[1]):
             r, g, b, a = rbgimg.getpixel((i, j))
-            print(r, g , b, a)
 
+            # Example of adding to the list a new pixel that has to change
+            # with its value.
+
+            pixelToChange.append({
+                'x': i,
+                'y': j,
+                'RGBA': (100, 100, 100, 255)
+            })
+
+    # Apply the changes
+
+    for newPixel in pixelToChange:
+        rbgimg.putpixel(
+            [newPixel['x'], newPixel['y']],
+            newPixel['RGBA']
+        )
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
