@@ -1,6 +1,7 @@
 from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
+import numpy as np
 
 
 def sad(image_path):
@@ -12,10 +13,10 @@ def sad(image_path):
     img = Image.open(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
-    treshold = 180
+    mask_size = 6
     # Do your algorithm
 
-    # This loop get all RGBA value for all pixel.
+    # Set grayscale to the picture.
     for i in range(rbgimg.size[0]):
         for j in range(rbgimg.size[1]):
             r, g, b, a = rbgimg.getpixel((i, j))
@@ -23,13 +24,22 @@ def sad(image_path):
             rbgimg.putpixel((i, j), (grayscale, grayscale, grayscale))
     for i in range(rbgimg.size[0]):
         for j in range(rbgimg.size[1]):
-            r, g, b, a = rbgimg.getpixel((i, j))
-            if r > treshold:
-                rbgimg.putpixel((i, j), (255, 255, 255))
-            else:
-                rbgimg.putpixel((i, j), (0, 0, 0))
-            # Example of adding to the list a new pixel that has to change
-            # with its value.
+            if (
+                i >= mask_size
+                and i <= rbgimg.size[0] - mask_size
+                and j >= mask_size
+                and j <= rbgimg.size[1] - mask_size
+            ):
+                average = []
+                for k in range(0, mask_size):
+                    for z in range(0, mask_size):
+                        r, g, b, a = rbgimg.getpixel((i + k, z + j))
+                        average.append(r)
+                average = int(np.average(average))
+                pixelToChange.append(
+                    {"x": i, "y": j, "RGBA": (average, average, average, 255)}
+                )
+    apply_filter(pixelToChange, rbgimg)
 
     # Save output.
     dateString = datetime.now().strftime("%m%d%Y%H-%M-%S")
