@@ -42,7 +42,7 @@ def happy(image_path):
     for pixel in pixelAddBlue:
         r, g, b, a = rbgimg.getpixel((pixel["x"], pixel["y"]))
         newB = b + pixel["RGBA"][1] if g + pixel["RGBA"][2] < 255 else 255
-        rbgimg.putpixel([pixel["x"], pixel["y"]], (r, g, newB, a)) 
+        rbgimg.putpixel([pixel["x"], pixel["y"]], (r, g, newB, a))
     # Save output.
     for i in range(0, rbgimg.size[0]):
         for j in range(0, rbgimg.size[1]):
