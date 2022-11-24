@@ -28,4 +28,4 @@ UPDATE FILTERS:
 [OK] Happy
 [KO] Neutral
 [KO] Sad
-[KO] Surprise
+[OK] Surprise
