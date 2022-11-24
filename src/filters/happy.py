@@ -26,10 +26,10 @@ def happy(image_path):
         for j in range(100, rbgimg.size[1]):
             r, g, b, a = rbgimg.getpixel((i, j))
             pixelToAdd.append({"x": i - 100, "y": j - 100, "RGBA": (0, g, 0, 255)})
-    for i in range(200, rbgimg.size[0]):
-        for j in range(200, rbgimg.size[1]):
+    for i in range(0, rbgimg.size[0]):
+        for j in range(0, rbgimg.size[1]):
             r, g, b, a = rbgimg.getpixel((i, j))
-            pixelAddBlue.append({"x": i - 200, "y": j - 200, "RGBA": (0, 0, b, 255)})
+            pixelAddBlue.append({"x": i, "y": j, "RGBA": (0, 0, b, 255)})
     # Apply the changes
 
     rbgimg = apply_filter(pixelToChange, rbgimg)
