@@ -24,6 +24,7 @@ def process_emotion(image_path):
             np.expand_dims(cv2.resize(roi_gray, (48, 48)), -1), 0
         )
         preds = classifier.predict(cropped_img)
+        print(preds[0])
         t = np.argmax(preds[0])
         return class_labels[t]
     if not foundFace:
