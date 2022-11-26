@@ -26,7 +26,7 @@ def process_emotion(image_path):
         preds = classifier.predict(cropped_img)
         print(preds[0])
         t = np.argmax(preds[0])
-        return class_labels[t]
+        return class_labels[t], x, y, w, h
     if not foundFace:
         print("No face found, use Surprise filter as default.")
     return "Surprise"

@@ -4,7 +4,7 @@ from filters.change_image import apply_filter
 import numpy as np
 
 
-def sad(image_path):
+def sad(image_path, x, y, h, w):
 
     pixelToChange = []
 
@@ -36,9 +36,14 @@ def sad(image_path):
                         r, g, b, a = rbgimg.getpixel((i + k, z + j))
                         average.append(r)
                 average = int(np.average(average))
-                pixelToChange.append(
-                    {"x": i, "y": j, "RGBA": (average, average, average, 255)}
-                )
+                if (i > x or i < x + w) and (j < y or j > y + h):
+                    pixelToChange.append(
+                        {"x": i, "y": j, "RGBA": (average, average, average, 255)}
+                    )
+                elif i < x or i > x + w:
+                    pixelToChange.append(
+                        {"x": i, "y": j, "RGBA": (average, average, average, 255)}
+                    )
     apply_filter(pixelToChange, rbgimg)
 
     # Save output.

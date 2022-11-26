@@ -6,7 +6,7 @@ from filters.surprise import surprise
 from filters.sad import sad
 
 
-def apply_filter(emotion, img_path):
+def apply_filter(emotion, img_path, x, y, h, w):
     if emotion == "Happy":
         return happy(img_path)
     elif emotion == "Angry":
@@ -16,5 +16,5 @@ def apply_filter(emotion, img_path):
     elif emotion == "Neutral":
         return neutral(img_path)
     elif emotion == "Sad":
-        return sad(img_path)
+        return sad(img_path, x, y, h, w)
     return surprise(img_path)

@@ -15,9 +15,9 @@ def main():
         return train()
     if not os.path.exists(list[1]):
         return print("File not found.")
-    emotion = process_emotion(list[1])
+    emotion, x, y, h, w = process_emotion(list[1])
     print(f"Found emotion is {emotion}")
-    apply_filter(emotion, list[1])
+    apply_filter(emotion, list[1], x, y, h, w)
 
 
 main()
