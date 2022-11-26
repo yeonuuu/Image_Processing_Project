@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "src/test_image.py", "img_path"]
+CMD ["python", "src/main.py", "test.png"]
