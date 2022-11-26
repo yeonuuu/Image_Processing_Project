@@ -1,4 +1,12 @@
-# How to use outside docker
+# How to use outside docker and outside Visual Studio
+
+## Environnement
+
+Install python
+
+```
+pip install -r requirements.txt
+```
 
 ## Training
 
@@ -11,6 +19,30 @@ python ./src/main.py --train
 ```
 python ./src/main.py [filepath]
 ```
+
+# How to use inside visual studio.
+
+## /!\ Important
+
+You must create a python env in visual studio, and install its requirements in the env
+Visual studio will show you how to do it once you open the project.
+
+## Training
+
+Right click on properties of the opened python project on visual studio.
+
+Go to Debugger
+
+In script arguments, remove everything and add --train
+
+## Usage
+
+Right click on properties of the opened python project on visual studio.
+
+Go to Debugger
+
+Write down the relative path of the picture you want to process coming from the root of the project.
+ex: ./tests_images/surprise.png
 
 # How to use inside docker
 

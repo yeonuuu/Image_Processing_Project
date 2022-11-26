@@ -1,4 +1,3 @@
-outputs/*.png
-outputs/*.jpg
-outputs/*.jpeg
-image.png
+outputs/*
+env
+.vs

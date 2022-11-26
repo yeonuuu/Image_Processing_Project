@@ -6,6 +6,7 @@ import os
 
 
 def main():
+    relativePath = ""
     mode = True
     list = sys.argv
     for arg in list[1:]:
@@ -13,11 +14,14 @@ def main():
             mode = False
     if mode == False:
         return train()
-    if not os.path.exists(list[1]):
-        return print("File not found.")
-    emotion, x, y, h, w = process_emotion(list[1])
+    relativePath = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", list[1])
+    )
+    if len(list) == 1 or not os.path.exists(relativePath):
+        return print("No argument given or the file is not found.")
+    emotion, x, y, h, w = process_emotion(relativePath)
     print(f"Found emotion is {emotion}")
-    apply_filter(emotion, list[1], x, y, h, w)
+    apply_filter(emotion, relativePath, x, y, h, w)
 
 
 main()
