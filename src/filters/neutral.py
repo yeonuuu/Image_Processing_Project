@@ -1,6 +1,7 @@
 from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
+from filters.neutral_mask import neutral_face
 
 
 def neutral(image_path):
@@ -9,7 +10,8 @@ def neutral(image_path):
 
     # Open image even grayscale and convert it to RGBA
 
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = neutral_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
     RedminIntensity = 255

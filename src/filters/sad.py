@@ -1,6 +1,7 @@
 from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
+from filters.sad_mask import sad_face
 import numpy as np
 
 
@@ -10,7 +11,8 @@ def sad(image_path, x, y, h, w):
 
     # Open image even grayscale and convert it to RGBA
 
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = sad_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
     mask_size = 6

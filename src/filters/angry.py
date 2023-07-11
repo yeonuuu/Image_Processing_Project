@@ -2,6 +2,7 @@ from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
 import numpy as np
+from filters.angry_mask import angry_face
 
 
 def angry(image_path):
@@ -10,7 +11,8 @@ def angry(image_path):
 
     # Open image even grayscale and convert it to RGBA
 
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = angry_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
     saveImage = Image.new("RGBA", img.size)
@@ -71,6 +73,7 @@ def angry(image_path):
                 pixelToChange.append(
                     {"x": i, "y": j, "RGBA": (averageR, averageG, averageB, 255)}
                 )
+
     apply_filter(pixelToChange, saveImage)
     for i in range(saveImage.size[0]):
         for j in range(saveImage.size[1]):
@@ -95,6 +98,7 @@ def angry(image_path):
                 pixelToChange.append(
                     {"x": i, "y": j, "RGBA": (averageR, averageG, averageB, 255)}
                 )
+
     apply_filter(pixelToChange, saveImage)
     for i in range(saveImage.size[0]):
         for j in range(saveImage.size[1]):

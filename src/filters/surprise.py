@@ -1,6 +1,7 @@
 from PIL import Image
 from datetime import datetime
 import numpy as np
+from filters.surprise_mask import surprise_face
 
 # This function get the average R, G, B values of the given img_array
 # and modifies the existing image using these values.
@@ -56,7 +57,8 @@ def buckets(pillow_image, five_channel, depth):
 
 def surprise(image_path):
     # Open image
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = surprise_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
 

@@ -1,6 +1,7 @@
 from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
+from filters.fear_mask import fear_face
 import numpy as np
 
 
@@ -10,7 +11,8 @@ def fear(image_path):
 
     # Open image even grayscale and convert it to RGBA
 
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = fear_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
 

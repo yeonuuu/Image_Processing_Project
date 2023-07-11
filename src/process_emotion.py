@@ -16,6 +16,7 @@ def process_emotion(image_path):
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
     )
     faces = face_cascade.detectMultiScale(gray)
+    print(faces)
     foundFace = False
     for (x, y, w, h) in faces:
         foundFace = True

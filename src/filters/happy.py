@@ -2,6 +2,8 @@ from PIL import Image
 from datetime import datetime
 from filters.change_image import apply_filter
 
+from filters.happy_mask import happy_face
+
 
 def happy(image_path):
 
@@ -9,7 +11,8 @@ def happy(image_path):
 
     # Open image even grayscale and convert it to RGBA
 
-    img = Image.open(image_path)
+    #img = Image.open(image_path)
+    img = happy_face(image_path)
     rbgimg = Image.new("RGBA", img.size)
     rbgimg.paste(img)
 
